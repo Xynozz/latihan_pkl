@@ -1,177 +1,220 @@
 @extends('layouts.component.frontend.admin')
 
 @section('content')
-{{-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
+<div class="main-content">
+    <!--breadcrumb-->
+    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+        <h3>Dashboard</h3>
+        <div class="ms-auto">
+            <div class="btn-group">
+                <button type="button" class="btn btn-outline-primary">Settings</button>
+                <button type="button"
+                    class="btn btn-outline-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
+                    data-bs-toggle="dropdown"> <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"> <a class="dropdown-item"
+                        href="javascript:;">Action</a>
+                    <a class="dropdown-item" href="javascript:;">Another action</a>
+                    <a class="dropdown-item" href="javascript:;">Something else here</a>
+                    <div class="dropdown-divider"></div> <a class="dropdown-item" href="javascript:;">Separated
+                        link</a>
                 </div>
             </div>
         </div>
     </div>
-</div> --}}
-    <div class="main-content">
-        <!--breadcrumb-->
-        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-            <div class="breadcrumb-title pe-3">Dashboard</div>
-            <div class="ps-3">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb mb-0 p-0">
-                        <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
-                        </li>
-                        <li class="breadcrumb-item active" aria-current="page">eCommerce</li>
-                    </ol>
-                </nav>
-            </div>
-            <div class="ms-auto">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-primary">Settings</button>
-                    <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
-                        data-bs-toggle="dropdown"> <span class="visually-hidden">Toggle Dropdown</span>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"> <a class="dropdown-item"
-                            href="javascript:;">Action</a>
-                        <a class="dropdown-item" href="javascript:;">Another action</a>
-                        <a class="dropdown-item" href="javascript:;">Something else here</a>
-                        <div class="dropdown-divider"></div><a class="dropdown-item" href="javascript:;">Separated
-                            link</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--end breadcrumb-->
+    <!--end breadcrumb-->
 
-
-        <div class="row">
-            <div class="col-12 col-lg-4 col-xxl-4 d-flex">
-                <div class="card rounded-4 w-100">
-                    <div class="card-body">
-                        <div class="">
-                            <div class="d-flex align-items-center gap-2 mb-2">
-                                <h5 class="mb-0">Congratulations <span class="fw-600">Jhon</span></h5>
-                                <img src="assets/images/apps/party-popper.png" width="24" height="24" alt="">
-                            </div>
-                            <p class="mb-4">You are the best seller of this monnth</p>
-                            <div class="d-flex align-items-center justify-content-between">
+    <div class="row">
+        <div class="col-xxl-8 d-flex align-items-stretch">
+            <div class="card w-100 overflow-hidden rounded-4">
+                <div class="card-body position-relative p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-7">
+                            <div class="d-flex align-items-center gap-3 mb-5">
+                                <img src="https://placehold.co/110x110/png" class="rounded-circle bg-grd-info p-1"
+                                    width="60" height="60" alt="user">
                                 <div class="">
-                                    <h3 class="mb-0 text-indigo">$168.5K</h3>
-                                    <p class="mb-3">58% of sales target</p>
-                                    <button class="btn btn-grd btn-grd-primary rounded-5 border-0 px-4">View
-                                        Details</button>
+                                    <p class="mb-0 fw-semibold">Welcome back</p>
+                                    <h4 class="fw-semibold mb-0 fs-4 mb-0">Jhon Anderson!</h4>
                                 </div>
-                                <img src="assets/images/apps/gift-box-3.png" width="100" alt="">
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-4 col-xxl-2 d-flex">
-                <div class="card rounded-4 w-100">
-                    <div class="card-body">
-                        <div class="mb-3 d-flex align-items-center justify-content-between">
-                            <div
-                                class="wh-42 d-flex align-items-center justify-content-center rounded-circle bg-primary bg-opacity-10 text-primary">
-                                <span class="material-icons-outlined fs-5">shopping_cart</span>
-                            </div>
-                            <div>
-                                <span class="text-success d-flex align-items-center">+24%<i
-                                        class="material-icons-outlined">expand_less</i></span>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="mb-0">248k</h4>
-                            <p class="mb-3">Total Orders</p>
-                            <div id="chart1"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-4 col-xxl-2 d-flex">
-                <div class="card rounded-4 w-100">
-                    <div class="card-body">
-                        <div class="mb-3 d-flex align-items-center justify-content-between">
-                            <div
-                                class="wh-42 d-flex align-items-center justify-content-center rounded-circle bg-success bg-opacity-10 text-success">
-                                <span class="material-icons-outlined fs-5">attach_money</span>
-                            </div>
-                            <div>
-                                <span class="text-success d-flex align-items-center">+14%<i
-                                        class="material-icons-outlined">expand_less</i></span>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="mb-0">$47.6k</h4>
-                            <p class="mb-3">Total Sales</p>
-                            <div id="chart2"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6 col-xxl-2 d-flex">
-                <div class="card rounded-4 w-100">
-                    <div class="card-body">
-                        <div class="mb-3 d-flex align-items-center justify-content-between">
-                            <div
-                                class="wh-42 d-flex align-items-center justify-content-center rounded-circle bg-info bg-opacity-10 text-info">
-                                <span class="material-icons-outlined fs-5">visibility</span>
-                            </div>
-                            <div>
-                                <span class="text-danger d-flex align-items-center">-35%<i
-                                        class="material-icons-outlined">expand_less</i></span>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="mb-0">189K</h4>
-                            <p class="mb-3">Total Visits</p>
-                            <div id="chart3"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6 col-xxl-2 d-flex">
-                <div class="card rounded-4 w-100">
-                    <div class="card-body">
-                        <div class="mb-3 d-flex align-items-center justify-content-between">
-                            <div
-                                class="wh-42 d-flex align-items-center justify-content-center rounded-circle bg-warning bg-opacity-10 text-warning">
-                                <span class="material-icons-outlined fs-5">leaderboard</span>
-                            </div>
-                            <div>
-                                <span class="text-success d-flex align-items-center">+18%<i
-                                        class="material-icons-outlined">expand_less</i></span>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="mb-0">24.6%</h4>
-                            <p class="mb-3">Bounce Rate</p>
-                            <div id="chart4"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <!--end row-->
-
-
-        <div class="row">
-            <div class="col-12 col-xl-4">
-                <div class="card w-100 rounded-4">
-                    <div class="card-body">
-                        <div class="d-flex flex-column gap-3">
-                            <div class="d-flex align-items-start justify-content-between">
+                            <div class="d-flex align-items-center gap-5">
                                 <div class="">
-                                    <h5 class="mb-0">Order Status</h5>
+                                    <h4 class="mb-1 fw-semibold d-flex align-content-center">$65.4K<i
+                                            class="ti ti-arrow-up-right fs-5 lh-base text-success"></i>
+                                    </h4>
+                                    <p class="mb-3">Today's Sales</p>
+                                    <div class="progress mb-0" style="height:5px;">
+                                        <div class="progress-bar bg-grd-success" role="progressbar" style="width: 60%"
+                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="vr"></div>
+                                <div class="">
+                                    <h4 class="mb-1 fw-semibold d-flex align-content-center">78.4%<i
+                                            class="ti ti-arrow-up-right fs-5 lh-base text-success"></i>
+                                    </h4>
+                                    <p class="mb-3">Growth Rate</p>
+                                    <div class="progress mb-0" style="height:5px;">
+                                        <div class="progress-bar bg-grd-danger" role="progressbar" style="width: 60%"
+                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-5">
+                            <div class="welcome-back-img pt-4">
+                                <img src="assets/images/gallery/welcome-back-3.png" height="180" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <!--end row-->
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-xxl-2 d-flex align-items-stretch">
+            <div class="card w-100 rounded-4">
+                <div class="card-body">
+                    <div class="d-flex align-items-start justify-content-between mb-1">
+                        <div class="">
+                            <h5 class="mb-0">42.5K</h5>
+                            <p class="mb-0">Active Users</p>
+                        </div>
+                        <div class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle-nocaret options dropdown-toggle"
+                                data-bs-toggle="dropdown">
+                                <span class="material-icons-outlined fs-5">more_vert</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="javascript:;">Action</a></li>
+                                <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
+                                <li><a class="dropdown-item" href="javascript:;">Something else here</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="chart-container2">
+                        <div id="chart1"></div>
+                    </div>
+                    <div class="text-center">
+                        <p class="mb-0 font-12">24K users increased from last month</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-xxl-2 d-flex align-items-stretch">
+            <div class="card w-100 rounded-4">
+                <div class="card-body">
+                    <div class="d-flex align-items-start justify-content-between mb-3">
+                        <div class="">
+                            <h5 class="mb-0">97.4K</h5>
+                            <p class="mb-0">Total Users</p>
+                        </div>
+                        <div class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle-nocaret options dropdown-toggle"
+                                data-bs-toggle="dropdown">
+                                <span class="material-icons-outlined fs-5">more_vert</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="javascript:;">Action</a></li>
+                                <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
+                                <li><a class="dropdown-item" href="javascript:;">Something else here</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="chart-container2">
+                        <div id="chart2"></div>
+                    </div>
+                    <div class="text-center">
+                        <p class="mb-0 font-12"><span class="text-success me-1">12.5%</span> from last month</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-xxl-4 d-flex align-items-stretch">
+            <div class="card w-100 rounded-4">
+                <div class="card-body">
+                    <div class="text-center">
+                        <h6 class="mb-0">Monthly Revenue</h6>
+                    </div>
+                    <div class="mt-4" id="chart5"></div>
+                    <p>Avrage monthly sale for every author</p>
+                    <div class="d-flex align-items-center gap-3 mt-4">
+                        <div class="">
+                            <h1 class="mb-0 text-primary">68.9%</h1>
+                        </div>
+                        <div class="d-flex align-items-center align-self-end">
+                            <p class="mb-0 text-success">34.5%</p>
+                            <span class="material-icons-outlined text-success">expand_less</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-xxl-4 d-flex align-items-stretch">
+            <div class="card w-100 rounded-4">
+                <div class="card-body">
+                    <div class="d-flex flex-column gap-3">
+                        <div class="d-flex align-items-start justify-content-between">
+                            <div class="">
+                                <h5 class="mb-0">Device Type</h5>
+                            </div>
+                            <div class="dropdown">
+                                <a href="javascript:;" class="dropdown-toggle-nocaret options dropdown-toggle"
+                                    data-bs-toggle="dropdown">
+                                    <span class="material-icons-outlined fs-5">more_vert</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="javascript:;">Action</a></li>
+                                    <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
+                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="position-relative">
+                            <div class="piechart-legend">
+                                <h2 class="mb-1">68%</h2>
+                                <h6 class="mb-0">Total Views</h6>
+                            </div>
+                            <div id="chart6"></div>
+                        </div>
+                        <div class="d-flex flex-column gap-3">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <p class="mb-0 d-flex align-items-center gap-2 w-25"><span
+                                        class="material-icons-outlined fs-6 text-primary">desktop_windows</span>Desktop
+                                </p>
+                                <div class="">
+                                    <p class="mb-0">35%</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <p class="mb-0 d-flex align-items-center gap-2 w-25"><span
+                                        class="material-icons-outlined fs-6 text-danger">tablet_mac</span>Tablet</p>
+                                <div class="">
+                                    <p class="mb-0">48%</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <p class="mb-0 d-flex align-items-center gap-2 w-25"><span
+                                        class="material-icons-outlined fs-6 text-success">phone_android</span>Mobile
+                                </p>
+                                <div class="">
+                                    <p class="mb-0">27%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-4">
+            <div class="row">
+                <div class="col-md-6 d-flex align-items-stretch">
+                    <div class="card w-100 rounded-4">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start justify-content-between mb-1">
+                                <div class="">
+                                    <h5 class="mb-0">82.7K</h5>
+                                    <p class="mb-0">Total Clicks</p>
                                 </div>
                                 <div class="dropdown">
                                     <a href="javascript:;" class="dropdown-toggle-nocaret options dropdown-toggle"
@@ -181,701 +224,642 @@
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="javascript:;">Action</a></li>
                                         <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
-                                        <li><a class="dropdown-item" href="javascript:;">Something else here</a></li>
+                                        <li><a class="dropdown-item" href="javascript:;">Something else here</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="position-relative">
-                                <div class="piechart-legend">
-                                    <h2 class="mb-1">68%</h2>
-                                    <h6 class="mb-0">Total Sales</h6>
-                                </div>
-                                <div id="chart6"></div>
+                            <div class="chart-container2">
+                                <div id="chart3"></div>
                             </div>
-                            <div class="d-flex flex-column gap-3">
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <p class="mb-0 d-flex align-items-center gap-2 w-25"><span
-                                            class="material-icons-outlined fs-6 text-primary">fiber_manual_record</span>Sales
-                                    </p>
-                                    <div class="">
-                                        <p class="mb-0">68%</p>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <p class="mb-0 d-flex align-items-center gap-2 w-25"><span
-                                            class="material-icons-outlined fs-6 text-danger">fiber_manual_record</span>Product
-                                    </p>
-                                    <div class="">
-                                        <p class="mb-0">25%</p>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <p class="mb-0 d-flex align-items-center gap-2 w-25"><span
-                                            class="material-icons-outlined fs-6 text-success">fiber_manual_record</span>Income
-                                    </p>
-                                    <div class="">
-                                        <p class="mb-0">14%</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-xl-8">
-                <div class="card w-100 rounded-4">
-                    <div class="card-body">
-                        <div class="d-flex align-items-start justify-content-between mb-3">
-                            <div class="">
-                                <h5 class="mb-0">Sales & Views</h5>
-                            </div>
-                            <div class="dropdown">
-                                <a href="javascript:;" class="dropdown-toggle-nocaret options dropdown-toggle"
-                                    data-bs-toggle="dropdown">
-                                    <span class="material-icons-outlined fs-5">more_vert</span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="javascript:;">Action</a></li>
-                                    <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
-                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div id="chart5"></div>
-                        <div
-                            class="d-flex flex-column flex-lg-row align-items-start justify-content-around border p-3 rounded-4 mt-3 gap-3">
-                            <div class="d-flex align-items-center gap-4">
-                                <div class="">
-                                    <p class="mb-0 data-attributes">
-                                        <span
-                                            data-peity='{ "fill": ["#2196f3", "rgb(255 255 255 / 12%)"], "innerRadius": 32, "radius": 40 }'>5/7</span>
-                                    </p>
-                                </div>
-                                <div class="">
-                                    <p class="mb-1 fs-6 fw-bold">Monthly</p>
-                                    <h2 class="mb-0">65,127</h2>
-                                    <p class="mb-0"><span class="text-success me-2 fw-medium">16.5%</span><span>55.21
-                                            USD</span></p>
-                                </div>
-                            </div>
-                            <div class="vr"></div>
-                            <div class="d-flex align-items-center gap-4">
-                                <div class="">
-                                    <p class="mb-0 data-attributes">
-                                        <span
-                                            data-peity='{ "fill": ["#ffd200", "rgb(255 255 255 / 12%)"], "innerRadius": 32, "radius": 40 }'>5/7</span>
-                                    </p>
-                                </div>
-                                <div class="">
-                                    <p class="mb-1 fs-6 fw-bold">Yearly</p>
-                                    <h2 class="mb-0">984,246</h2>
-                                    <p class="mb-0"><span class="text-success me-2 fw-medium">24.9%</span><span>267.35
-                                            USD</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--end row-->
-
-
-        <div class="row">
-            <div class="col-12 col-lg-6 col-xxl-4 d-flex">
-                <div class="card w-100 rounded-4">
-                    <div class="card-body">
-                        <div class="d-flex align-items-start justify-content-between mb-3">
-                            <div class="">
-                                <h5 class="mb-0">Social Revenue</h5>
-                            </div>
-                            <div class="dropdown">
-                                <a href="javascript:;" class="dropdown-toggle-nocaret options dropdown-toggle"
-                                    data-bs-toggle="dropdown">
-                                    <span class="material-icons-outlined fs-5">more_vert</span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="javascript:;">Action</a></li>
-                                    <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
-                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="mb-4">
-                            <div class="d-flex align-items-center gap-3">
-                                <h3 class="mb-0">48,569</h3>
-                                <p class="mb-0 text-success gap-3">27%<span
-                                        class="material-icons-outlined fs-6">arrow_upward</span>
+                            <div class="text-center">
+                                <p class="mb-0 font-12"><span class="text-success me-1">12.5%</span> from last month
                                 </p>
                             </div>
-                            <p class="mb-0 font-13">Last 1 Year Income</p>
-                        </div>
-                        <div class="table-responsive">
-                            <div class="d-flex flex-column gap-4">
-                                <div class="d-flex align-items-center gap-3">
-                                    <div class="social-icon d-flex align-items-center gap-3 flex-grow-1">
-                                        <img src="assets/images/apps/17.png" width="40" alt="">
-                                        <div>
-                                            <h6 class="mb-0">Facebook</h6>
-                                            <p class="mb-0">Social Media</p>
-                                        </div>
-                                    </div>
-                                    <h5 class="mb-0">45,689</h5>
-                                    <div class="card-lable bg-success text-success bg-opacity-10">
-                                        <p class="text-success mb-0">+28.5%</p>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center gap-3">
-                                    <div class="social-icon d-flex align-items-center gap-3 flex-grow-1">
-                                        <img src="assets/images/apps/twitter-circle.png" width="40" alt="">
-                                        <div>
-                                            <h6 class="mb-0">Twitter</h6>
-                                            <p class="mb-0">Social Media</p>
-                                        </div>
-                                    </div>
-                                    <h5 class="mb-0">34,248</h5>
-                                    <div class="card-lable bg-danger text-danger bg-opacity-10">
-                                        <p class="text-red mb-0">-14.5%</p>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center gap-3">
-                                    <div class="social-icon d-flex align-items-center gap-3 flex-grow-1">
-                                        <img src="assets/images/apps/03.png" width="40" alt="">
-                                        <div>
-                                            <h6 class="mb-0">Tik Tok</h6>
-                                            <p class="mb-0">Entertainment</p>
-                                        </div>
-                                    </div>
-                                    <h5 class="mb-0">45,689</h5>
-                                    <div class="card-lable bg-success text-success bg-opacity-10">
-                                        <p class="text-green mb-0">+28.5%</p>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center gap-3">
-                                    <div class="social-icon d-flex align-items-center gap-3 flex-grow-1">
-                                        <img src="assets/images/apps/19.png" width="40" alt="">
-                                        <div>
-                                            <h6 class="mb-0">Instagram</h6>
-                                            <p class="mb-0">Social Media</p>
-                                        </div>
-                                    </div>
-                                    <h5 class="mb-0">67,249</h5>
-                                    <div class="card-lable bg-danger text-danger bg-opacity-10">
-                                        <p class="text-red mb-0">-43.5%</p>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center gap-3">
-                                    <div class="social-icon d-flex align-items-center gap-3 flex-grow-1">
-                                        <img src="assets/images/apps/20.png" width="40" alt="">
-                                        <div>
-                                            <h6 class="mb-0">Snapchat</h6>
-                                            <p class="mb-0">Conversation</p>
-                                        </div>
-                                    </div>
-                                    <h5 class="mb-0">89,178</h5>
-                                    <div class="card-lable bg-success text-success bg-opacity-10">
-                                        <p class="text-green mb-0">+24.7%</p>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-lg-6 col-xxl-4 d-flex">
-                <div class="card w-100 rounded-4">
-                    <div class="card-body">
-                        <div class="d-flex align-items-start justify-content-between mb-3">
-                            <div class="">
-                                <h5 class="mb-0">Popular Products</h5>
-                            </div>
-                            <div class="dropdown">
-                                <a href="javascript:;" class="dropdown-toggle-nocaret options dropdown-toggle"
-                                    data-bs-toggle="dropdown">
-                                    <span class="material-icons-outlined fs-5">more_vert</span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="javascript:;">Action</a></li>
-                                    <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
-                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="d-flex flex-column gap-4">
-                            <div class="d-flex align-items-center gap-3">
-                                <img src="https://placehold.co/200x200/png" width="55" class="rounded-circle" alt="">
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-0">Apple Hand Watch</h6>
-                                    <p class="mb-0">Sale: 258</p>
-                                </div>
-                                <div class="text-center">
-                                    <h6 class="mb-1">$199</h6>
-                                    <p class="mb-0 text-success font-13">+12%</p>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center gap-3">
-                                <img src="https://placehold.co/200x200/png" width="55" class="rounded-circle" alt="">
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-0">Mobile Phone Set</h6>
-                                    <p class="mb-0">Sale: 169</p>
-                                </div>
-                                <div class="text-center">
-                                    <h6 class="mb-1">$159</h6>
-                                    <p class="mb-0 text-success font-13">+14%</p>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center gap-3">
-                                <img src="https://placehold.co/200x200/png" width="55" class="rounded-circle" alt="">
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-0">Grey Shoes Pair</h6>
-                                    <p class="mb-0">Sale: 859</p>
-                                </div>
+                <div class="col-sm-6 d-flex align-items-stretch">
+                    <div class="card w-100 rounded-4">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start justify-content-between mb-1">
                                 <div class="">
-                                    <div class="text-center">
-                                        <h6 class="mb-1">$279</h6>
-                                        <p class="mb-0 text-danger font-13">-12%</p>
-                                    </div>
+                                    <h5 class="mb-0">68.4K</h5>
+                                    <p class="mb-0">Total Views</p>
+                                </div>
+                                <div class="dropdown">
+                                    <a href="javascript:;" class="dropdown-toggle-nocaret options dropdown-toggle"
+                                        data-bs-toggle="dropdown">
+                                        <span class="material-icons-outlined fs-5">more_vert</span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="javascript:;">Action</a></li>
+                                        <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
+                                        <li><a class="dropdown-item" href="javascript:;">Something else here</a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="d-flex align-items-center gap-3">
-                                <img src="https://placehold.co/200x200/png" width="55" class="rounded-circle" alt="">
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-0">Blue Yoga Mat</h6>
-                                    <p class="mb-0">Sale: 328</p>
-                                </div>
-                                <div class="text-center">
-                                    <h6 class="mb-1">$389</h6>
-                                    <p class="mb-0 text-success font-13">+25%</p>
-                                </div>
+                            <div class="chart-container2">
+                                <div id="chart4"></div>
                             </div>
-                            <div class="d-flex align-items-center gap-3">
-                                <img src="https://placehold.co/200x200/png" width="55" class="rounded-circle" alt="">
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-0">White water Bottle</h6>
-                                    <p class="mb-0">Sale: 992</p>
-                                </div>
-                                <div class="text-center">
-                                    <h6 class="mb-1">$584</h6>
-                                    <p class="mb-0 text-danger font-13">-25%</p>
-                                </div>
+                            <div class="text-center">
+                                <p class="mb-0 font-12">35K users increased from last month</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-12 col-xxl-4 d-flex">
-                <div class="card w-100 rounded-4">
-                    <div class="card-body">
-                        <div class="d-flex align-items-start justify-content-between mb-3">
-                            <div class="">
-                                <h5 class="mb-0">Top Vendors</h5>
-                            </div>
-                            <div class="dropdown">
-                                <a href="javascript:;" class="dropdown-toggle-nocaret options dropdown-toggle"
-                                    data-bs-toggle="dropdown">
-                                    <span class="material-icons-outlined fs-5">more_vert</span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="javascript:;">Action</a></li>
-                                    <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
-                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a></li>
-                                </ul>
-                            </div>
+            <div class="card rounded-4">
+                <div class="card-body">
+                    <div class="d-flex align-items-center gap-3 mb-2">
+                        <div class="">
+                            <h3 class="mb-0">85,247</h3>
                         </div>
-                        <div class="d-flex flex-column gap-4">
-                            <div class="d-flex align-items-center gap-3">
-                                <img src="https://placehold.co/110x110/png" width="55" class="rounded-circle" alt="">
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-0">Ajay Sidhu</h6>
-                                    <p class="mb-0">Sale: 879</p>
-                                </div>
-                                <div class="ratings">
-                                    <span class="material-icons-outlined text-warning fs-5">star</span>
-                                    <span class="material-icons-outlined text-warning fs-5">star</span>
-                                    <span class="material-icons-outlined text-warning fs-5">star</span>
-                                    <span class="material-icons-outlined text-warning fs-5">star</span>
-                                    <span class="material-icons-outlined text-warning fs-5">star</span>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center gap-3">
-                                <img src="https://placehold.co/110x110/png" width="55" class="rounded-circle" alt="">
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-0">Ajay Sidhu</h6>
-                                    <p class="mb-0">Sale: 879</p>
-                                </div>
-                                <div class="ratings">
-                                    <span class="material-icons-outlined text-warning fs-5">star</span>
-                                    <span class="material-icons-outlined text-warning fs-5">star</span>
-                                    <span class="material-icons-outlined text-warning fs-5">star</span>
-                                    <span class="material-icons-outlined text-warning fs-5">star</span>
-                                    <span class="material-icons-outlined fs-5">star</span>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center gap-3">
-                                <img src="https://placehold.co/110x110/png" width="55" class="rounded-circle" alt="">
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-0">Ajay Sidhu</h6>
-                                    <p class="mb-0">Sale: 879</p>
-                                </div>
-                                <div class="ratings">
-                                    <span class="material-icons-outlined text-warning fs-5">star</span>
-                                    <span class="material-icons-outlined text-warning fs-5">star</span>
-                                    <span class="material-icons-outlined text-warning fs-5">star</span>
-                                    <span class="material-icons-outlined fs-5">star</span>
-                                    <span class="material-icons-outlined fs-5">star</span>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center gap-3">
-                                <img src="https://placehold.co/110x110/png" width="55" class="rounded-circle" alt="">
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-0">Ajay Sidhu</h6>
-                                    <p class="mb-0">Sale: 879</p>
-                                </div>
-                                <div class="ratings">
-                                    <span class="material-icons-outlined text-warning fs-5">star</span>
-                                    <span class="material-icons-outlined text-warning fs-5">star</span>
-                                    <span class="material-icons-outlined fs-5">star</span>
-                                    <span class="material-icons-outlined fs-5">star</span>
-                                    <span class="material-icons-outlined fs-5">star</span>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center gap-3">
-                                <img src="https://placehold.co/110x110/png" width="55" class="rounded-circle" alt="">
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-0">Ajay Sidhu</h6>
-                                    <p class="mb-0">Sale: 879</p>
-                                </div>
-                                <div class="ratings">
-                                    <span class="material-icons-outlined text-warning fs-5">star</span>
-                                    <span class="material-icons-outlined fs-5">star</span>
-                                    <span class="material-icons-outlined fs-5">star</span>
-                                    <span class="material-icons-outlined fs-5">star</span>
-                                    <span class="material-icons-outlined fs-5">star</span>
-                                </div>
-                            </div>
+                        <div class="flex-grow-0">
+                            <p
+                                class="dash-lable d-flex align-items-center gap-1 rounded mb-0 bg-success text-success bg-opacity-10">
+                                <span class="material-icons-outlined fs-6">arrow_downward</span>23.7%
+                            </p>
                         </div>
                     </div>
+                    <p class="mb-0">Total Accounts</p>
+                    <div id="chart7"></div>
                 </div>
             </div>
         </div>
-        <!--end row-->
-
-
-        <div class="row">
-            <div class="col-12 col-xxl-6 d-flex">
-                <div class="card rounded-4 w-100">
-                    <div class="card-body">
-                        <div class="d-flex align-items-start justify-content-between mb-3">
-                            <div class="">
-                                <h5 class="mb-0">Transactions</h5>
-                            </div>
-                            <div class="dropdown">
-                                <a href="javascript:;" class="dropdown-toggle-nocaret options dropdown-toggle"
-                                    data-bs-toggle="dropdown">
-                                    <span class="material-icons-outlined fs-5">more_vert</span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="javascript:;">Action</a></li>
-                                    <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
-                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a></li>
-                                </ul>
-                            </div>
+        <div class="col-xl-6 col-xxl-4 d-flex align-items-stretch">
+            <div class="card w-100 rounded-4">
+                <div class="card-body">
+                    <div class="d-flex align-items-start justify-content-between mb-3">
+                        <div class="">
+                            <h6 class="mb-0 fw-bold">Campaign Stats</h6>
                         </div>
-                        <div class="table-responsive">
-                            <table class="table align-middle mb-0 table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Source Name</th>
-                                        <th>Status</th>
-                                        <th>Amount</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="">
-                                                <h6 class="mb-0">10 Sep,2024</h6>
-                                                <p class="mb-0">8:20 PM</p>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center flex-row gap-3">
-                                                <div class="">
-                                                    <img src="assets/images/apps/paypal.png" width="35" alt="">
-                                                </div>
-                                                <div class="">
-                                                    <h6 class="mb-0">Paypal</h6>
-                                                    <p class="mb-0">Business Plan</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="card-lable bg-success text-success bg-opacity-10">
-                                                <p class="text-success mb-0">Paid</p>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <h5 class="mb-0">$5897</h5>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="">
-                                                <h6 class="mb-0">10 Sep,2024</h6>
-                                                <p class="mb-0">8:20 PM</p>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center flex-row gap-3">
-                                                <div class="">
-                                                    <img src="assets/images/apps/13.png" width="35" alt="">
-                                                </div>
-                                                <div class="">
-                                                    <h6 class="mb-0">Visa</h6>
-                                                    <p class="mb-0">Business Plan</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="card-lable bg-danger text-danger bg-opacity-10">
-                                                <p class="text-danger mb-0">Unpaid</p>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <h5 class="mb-0">$9638</h5>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="">
-                                                <h6 class="mb-0">10 Sep,2024</h6>
-                                                <p class="mb-0">8:20 PM</p>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center flex-row gap-3">
-                                                <div class="">
-                                                    <img src="assets/images/apps/behance.png" width="35" alt="">
-                                                </div>
-                                                <div class="">
-                                                    <h6 class="mb-0">Behance</h6>
-                                                    <p class="mb-0">Business Plan</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="card-lable bg-success text-success bg-opacity-10">
-                                                <p class="text-success mb-0">Paid</p>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <h5 class="mb-0">$9638</h5>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="">
-                                                <h6 class="mb-0">10 Sep,2024</h6>
-                                                <p class="mb-0">8:20 PM</p>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center flex-row gap-3">
-                                                <div class="">
-                                                    <img src="assets/images/apps/07.png" width="35" alt="">
-                                                </div>
-                                                <div class="">
-                                                    <h6 class="mb-0">Spotify</h6>
-                                                    <p class="mb-0">Business Plan</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="card-lable bg-success text-success bg-opacity-10">
-                                                <p class="text-success mb-0">Paid</p>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <h5 class="mb-0">$9638</h5>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="">
-                                                <h6 class="mb-0">10 Sep,2024</h6>
-                                                <p class="mb-0">8:20 PM</p>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center flex-row gap-3">
-                                                <div class="">
-                                                    <img src="assets/images/apps/05.png" width="35" alt="">
-                                                </div>
-                                                <div class="">
-                                                    <h6 class="mb-0">Google</h6>
-                                                    <p class="mb-0">Business Plan</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="card-lable bg-danger text-danger bg-opacity-10">
-                                                <p class="text-danger mb-0">Unpaid</p>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <h5 class="mb-0">$9638</h5>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="">
-                                                <h6 class="mb-0">10 Sep,2024</h6>
-                                                <p class="mb-0">8:20 PM</p>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center flex-row gap-3">
-                                                <div class="">
-                                                    <img src="assets/images/apps/apple.png" width="35" alt="">
-                                                </div>
-                                                <div class="">
-                                                    <h6 class="mb-0">Apple</h6>
-                                                    <p class="mb-0">Business Plan</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="card-lable bg-success text-success bg-opacity-10">
-                                                <p class="text-success mb-0">Paid</p>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <h5 class="mb-0">$9638</h5>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle-nocaret options dropdown-toggle"
+                                data-bs-toggle="dropdown">
+                                <span class="material-icons-outlined fs-5">more_vert</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="javascript:;">Action</a></li>
+                                <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
+                                <li><a class="dropdown-item" href="javascript:;">Something else here</a></li>
+                            </ul>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6 col-xxl-3 d-flex flex-column">
-                <div class="card rounded-4 w-100">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <div>
-                                <p class="mb-1">Messages</p>
-                                <h3 class="mb-0">986</h3>
-                            </div>
-                            <div
-                                class="wh-42 d-flex align-items-center justify-content-center rounded-circle bg-grd-danger">
-                                <span class="material-icons-outlined fs-5 text-white">shopping_cart</span>
-                            </div>
-                        </div>
-                        <div class="progress mb-0" style="height:6px;">
-                            <div class="progress-bar bg-grd-danger" role="progressbar" style="width: 60%"
-                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <div class="d-flex align-items-center mt-3 gap-2">
-                            <div class="card-lable bg-success bg-opacity-10">
-                                <p class="text-success mb-0">+34.7%</p>
-                            </div>
-                            <p class="mb-0 font-13">from last month</p>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="card rounded-4 w-100 d-none">
-                    <div class="card-body">
-                        <div class="d-flex align-items-start justify-content-between mb-3">
-                            <div class="">
-                                <div class="">
-                                    <p class="mb-2">Total Profit</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item px-0 bg-transparent">
+                            <div class="d-flex align-items-center gap-3">
+                                <div
+                                    class="wh-42 d-flex align-items-center justify-content-center rounded-3 bg-grd-primary">
+                                    <span class="material-icons-outlined text-white">calendar_today</span>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Campaigns</h6>
                                 </div>
                                 <div class="d-flex align-items-center gap-3">
-                                    <h4 class="mb-0">$75,365</h4>
-                                    <div class="card-lable bg-danger bg-opacity-10">
-                                        <p class="text-danger mb-0">-26.9%</p>
-                                    </div>
+                                    <p class="mb-0">54</p>
+                                    <p class="mb-0 fw-bold text-success">28%</p>
                                 </div>
                             </div>
-                            <div class="dropdown">
-                                <a href="javascript:;" class="dropdown-toggle-nocaret options dropdown-toggle"
-                                    data-bs-toggle="dropdown">
-                                    <span class="material-icons-outlined fs-5">more_vert</span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="javascript:;">Action</a></li>
-                                    <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
-                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a></li>
-                                </ul>
+                        </li>
+                        <li class="list-group-item px-0 bg-transparent">
+                            <div class="d-flex align-items-center gap-3">
+                                <div
+                                    class="wh-42 d-flex align-items-center justify-content-center rounded-3 bg-grd-success">
+                                    <span class="material-icons-outlined text-white">email</span>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Emailed</h6>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <p class="mb-0">245</p>
+                                    <p class="mb-0 fw-bold text-danger">15%</p>
+                                </div>
                             </div>
-                        </div>
-                        <div id="chart7"></div>
-                    </div>
-                </div>
+                        </li>
+                        <li class="list-group-item px-0 bg-transparent">
+                            <div class="d-flex align-items-center gap-3">
+                                <div
+                                    class="wh-42 d-flex align-items-center justify-content-center rounded-3 bg-grd-branding">
+                                    <span class="material-icons-outlined text-white">open_in_new</span>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Opened</h6>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <p class="mb-0">54</p>
+                                    <p class="mb-0 fw-bold text-success">30.5%</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item px-0 bg-transparent">
+                            <div class="d-flex align-items-center gap-3">
+                                <div
+                                    class="wh-42 d-flex align-items-center justify-content-center rounded-3 bg-grd-warning">
+                                    <span class="material-icons-outlined text-white">ads_click</span>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Clicked</h6>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <p class="mb-0">859</p>
+                                    <p class="mb-0 fw-bold text-danger">34.6%</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item px-0 bg-transparent">
+                            <div class="d-flex align-items-center gap-3">
+                                <div
+                                    class="wh-42 d-flex align-items-center justify-content-center rounded-3 bg-grd-info">
+                                    <span class="material-icons-outlined text-white">subscriptions</span>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Subscribed</h6>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <p class="mb-0">24,758</p>
+                                    <p class="mb-0 fw-bold text-success">53%</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item px-0 bg-transparent">
+                            <div class="d-flex align-items-center gap-3">
+                                <div
+                                    class="wh-42 d-flex align-items-center justify-content-center rounded-3 bg-grd-danger">
+                                    <span class="material-icons-outlined text-white">inbox</span>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Spam Message</h6>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <p class="mb-0">548</p>
+                                    <p class="mb-0 fw-bold text-danger">47%</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item px-0 bg-transparent">
+                            <div class="d-flex align-items-center gap-3">
+                                <div
+                                    class="wh-42 d-flex align-items-center justify-content-center rounded-3 bg-grd-deep-blue">
+                                    <span class="material-icons-outlined text-white">visibility</span>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Views Mails</h6>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <p class="mb-0">9845</p>
+                                    <p class="mb-0 fw-bold text-success">68%</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
 
-                <div class="card rounded-4 w-100">
-                    <div class="card-body">
-                        <div class="d-flex align-items-start justify-content-between mb-3">
-                            <div class="">
-                                <h5 class="mb-0">$15.7K</h5>
-                                <p class="mb-0">Total Profit</p>
-                            </div>
-                            <div class="dropdown">
-                                <a href="javascript:;" class="dropdown-toggle-nocaret options dropdown-toggle"
-                                    data-bs-toggle="dropdown">
-                                    <span class="material-icons-outlined fs-5">more_vert</span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="javascript:;">Action</a></li>
-                                    <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
-                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a></li>
-                                </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-xxl-4 d-flex align-items-stretch">
+            <div class="card w-100 rounded-4">
+                <div class="card-body">
+                    <div id="chart8"></div>
+                    <div class="d-flex align-items-center gap-3 mt-4">
+                        <div class="">
+                            <h1 class="mb-0">36.7%</h1>
+                        </div>
+                        <div class="d-flex align-items-center align-self-end gap-2">
+                            <span class="material-icons-outlined text-success">trending_up</span>
+                            <p class="mb-0 text-success">34.5%</p>
+                        </div>
+                    </div>
+                    <p class="mb-4">Visitors Growth</p>
+                    <div class="d-flex flex-column gap-3">
+                        <div class="">
+                            <p class="mb-1">Cliks <span class="float-end">2589</span></p>
+                            <div class="progress" style="height: 5px;">
+                                <div class="progress-bar bg-grd-primary" style="width: 65%"></div>
                             </div>
                         </div>
                         <div class="">
-                            <div id="chart9"></div>
-                        </div>
-                        <div class="text-center mt-3">
-                            <p class="mb-0"><span class="text-success me-1">12.5%</span> from last month</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6 col-xxl-3 d-flex">
-                <div class="card rounded-4 w-100">
-                    <div class="card-body">
-                        <div class="d-flex align-items-start justify-content-between mb-3">
-                            <div class="">
-                                <h5 class="mb-0">Monthly Budget</h5>
-                            </div>
-                            <div class="dropdown">
-                                <a href="javascript:;" class="dropdown-toggle-nocaret options dropdown-toggle"
-                                    data-bs-toggle="dropdown">
-                                    <span class="material-icons-outlined fs-5">more_vert</span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="javascript:;">Action</a></li>
-                                    <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
-                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a></li>
-                                </ul>
+                            <p class="mb-1">Likes <span class="float-end">6748</span></p>
+                            <div class="progress" style="height: 5px;">
+                                <div class="progress-bar bg-grd-warning" style="width: 55%"></div>
                             </div>
                         </div>
-                        <div class="chart-container mb-2">
-                            <div id="chart8"></div>
-                        </div>
-                        <div class="text-center">
-                            <h3>$84,256</h3>
-                            <p class="mb-3">Vestibulum fermentum nisl id nulla ultricies convallis.</p>
-                            <button class="btn btn-grd btn-grd-info rounded-5 px-4">Increase Budget</button>
+                        <div class="">
+                            <p class="mb-1">Upvotes <span class="float-end">9842</span></p>
+                            <div class="progress" style="height: 5px;">
+                                <div class="progress-bar bg-grd-info" style="width: 45%"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--end row-->
+        <div class="col-xl-6 col-xxl-4 d-flex align-items-stretch">
+            <div class="card w-100 rounded-4">
+                <div class="card-body">
+                    <div class="d-flex align-items-start justify-content-between mb-3">
+                        <div class="">
+                            <h5 class="mb-0 fw-bold">Social Leads</h5>
+                        </div>
+                        <div class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle-nocaret options dropdown-toggle"
+                                data-bs-toggle="dropdown">
+                                <span class="material-icons-outlined fs-5">more_vert</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="javascript:;">Action</a></li>
+                                <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
+                                <li><a class="dropdown-item" href="javascript:;">Something else here</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column justify-content-between gap-4">
+                        <div class="d-flex align-items-center gap-4">
+                            <div class="d-flex align-items-center gap-3 flex-grow-1">
+                                <img src="assets/images/apps/17.png" width="32" alt="">
+                                <p class="mb-0">Facebook</p>
+                            </div>
+                            <div class="">
+                                <p class="mb-0 fs-6">55%</p>
+                            </div>
+                            <div class="">
+                                <p class="mb-0 data-attributes">
+                                    <span
+                                        data-peity='{ "fill": ["#0d6efd", "rgb(255 255 255 / 10%)"], "innerRadius": 14, "radius": 18 }'>5/7</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-4">
+                            <div class="d-flex align-items-center gap-3 flex-grow-1">
+                                <img src="assets/images/apps/18.png" width="32" alt="">
+                                <p class="mb-0">LinkedIn</p>
+                            </div>
+                            <div class="">
+                                <p class="mb-0 fs-6">67%</p>
+                            </div>
+                            <div class="">
+                                <p class="mb-0 data-attributes">
+                                    <span
+                                        data-peity='{ "fill": ["#fc185a", "rgb(255 255 255 / 10%)"], "innerRadius": 14, "radius": 18 }'>5/7</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-4">
+                            <div class="d-flex align-items-center gap-3 flex-grow-1">
+                                <img src="assets/images/apps/19.png" width="32" alt="">
+                                <p class="mb-0">Instagram</p>
+                            </div>
+                            <div class="">
+                                <p class="mb-0 fs-6">78%</p>
+                            </div>
+                            <div class="">
+                                <p class="mb-0 data-attributes">
+                                    <span
+                                        data-peity='{ "fill": ["#02c27a", "rgb(255 255 255 / 10%)"], "innerRadius": 14, "radius": 18 }'>5/7</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-4">
+                            <div class="d-flex align-items-center gap-3 flex-grow-1">
+                                <img src="assets/images/apps/20.png" width="32" alt="">
+                                <p class="mb-0">Snapchat</p>
+                            </div>
+                            <div class="">
+                                <p class="mb-0 fs-6">46%</p>
+                            </div>
+                            <div class="">
+                                <p class="mb-0 data-attributes">
+                                    <span
+                                        data-peity='{ "fill": ["#fd7e14", "rgb(255 255 255 / 10%)"], "innerRadius": 14, "radius": 18 }'>5/7</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-4">
+                            <div class="d-flex align-items-center gap-3 flex-grow-1">
+                                <img src="assets/images/apps/05.png" width="32" alt="">
+                                <p class="mb-0">Google</p>
+                            </div>
+                            <div class="">
+                                <p class="mb-0 fs-6">38%</p>
+                            </div>
+                            <div class="">
+                                <p class="mb-0 data-attributes">
+                                    <span
+                                        data-peity='{ "fill": ["#0dcaf0", "rgb(255 255 255 / 10%)"], "innerRadius": 14, "radius": 18 }'>5/7</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-4">
+                            <div class="d-flex align-items-center gap-3 flex-grow-1">
+                                <img src="assets/images/apps/08.png" width="32" alt="">
+                                <p class="mb-0">Altaba</p>
+                            </div>
+                            <div class="">
+                                <p class="mb-0 fs-6">15%</p>
+                            </div>
+                            <div class="">
+                                <p class="mb-0 data-attributes">
+                                    <span
+                                        data-peity='{ "fill": ["#6f42c1", "rgb(255 255 255 / 10%)"], "innerRadius": 14, "radius": 18 }'>5/7</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-4">
+                            <div class="d-flex align-items-center gap-3 flex-grow-1">
+                                <img src="assets/images/apps/07.png" width="32" alt="">
+                                <p class="mb-0">Spotify</p>
+                            </div>
+                            <div class="">
+                                <p class="mb-0 fs-6">12%</p>
+                            </div>
+                            <div class="">
+                                <p class="mb-0 data-attributes">
+                                    <span
+                                        data-peity='{ "fill": ["#ff00b3", "rgb(255 255 255 / 10%)"], "innerRadius": 14, "radius": 18 }'>5/7</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-xxl-4 d-flex align-items-stretch">
+            <div class="card w-100 rounded-4">
+                <div class="card-header border-0 p-3 border-bottom">
+                    <div class="d-flex align-items-start justify-content-between">
+                        <div class="">
+                            <h5 class="mb-0">New Users</h5>
+                        </div>
+                        <div class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle-nocaret options dropdown-toggle"
+                                data-bs-toggle="dropdown">
+                                <span class="material-icons-outlined fs-5">more_vert</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="javascript:;">Action</a></li>
+                                <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
+                                <li><a class="dropdown-item" href="javascript:;">Something else here</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <div class="user-list p-3">
+                        <div class="d-flex flex-column gap-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <img src="https://placehold.co/110x110/png" width="45" height="45"
+                                    class="rounded-circle" alt="">
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Elon Jonado</h6>
+                                    <p class="mb-0">elon_deo</p>
+                                </div>
+                                <div class="form-check form-check-inline me-0">
+                                    <input class="form-check-input ms-0" type="checkbox">
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                                <img src="https://placehold.co/110x110/png" width="45" height="45"
+                                    class="rounded-circle" alt="">
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Alexzender Clito</h6>
+                                    <p class="mb-0">zli_alexzender</p>
+                                </div>
+                                <div class="form-check form-check-inline me-0">
+                                    <input class="form-check-input ms-0" type="checkbox">
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                                <img src="https://placehold.co/110x110/png" width="45" height="45"
+                                    class="rounded-circle" alt="">
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Michle Tinko</h6>
+                                    <p class="mb-0">tinko_michle</p>
+                                </div>
+                                <div class="form-check form-check-inline me-0">
+                                    <input class="form-check-input ms-0" type="checkbox">
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                                <img src="https://placehold.co/110x110/png" width="45" height="45"
+                                    class="rounded-circle" alt="">
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">KailWemba</h6>
+                                    <p class="mb-0">wemba_kl</p>
+                                </div>
+                                <div class="form-check form-check-inline me-0">
+                                    <input class="form-check-input ms-0" type="checkbox">
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                                <img src="https://placehold.co/110x110/png" width="45" height="45"
+                                    class="rounded-circle" alt="">
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Henhco Tino</h6>
+                                    <p class="mb-0">Henhco_tino</p>
+                                </div>
+                                <div class="form-check form-check-inline me-0">
+                                    <input class="form-check-input ms-0" type="checkbox">
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                                <img src="https://placehold.co/110x110/png" width="45" height="45"
+                                    class="rounded-circle" alt="">
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Gonjiko Fernando</h6>
+                                    <p class="mb-0">gonjiko_fernando</p>
+                                </div>
+                                <div class="form-check form-check-inline me-0">
+                                    <input class="form-check-input ms-0" type="checkbox">
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                                <img src="https://placehold.co/110x110/png" width="45" height="45"
+                                    class="rounded-circle" alt="">
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-0">Specer Kilo</h6>
+                                    <p class="mb-0">specer_kilo</p>
+                                </div>
+                                <div class="form-check form-check-inline me-0">
+                                    <input class="form-check-input ms-0" type="checkbox">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent p-3">
+                    <div class="d-flex align-items-center justify-content-between gap-3">
+                        <a href="javascript:;" class="sharelink"><i class="material-icons-outlined">share</i></a>
+                        <a href="javascript:;" class="sharelink"><i class="material-icons-outlined">textsms</i></a>
+                        <a href="javascript:;" class="sharelink"><i class="material-icons-outlined">email</i></a>
+                        <a href="javascript:;" class="sharelink"><i class="material-icons-outlined">attach_file</i></a>
+                        <a href="javascript:;" class="sharelink"><i class="material-icons-outlined">event</i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-xxl-8 d-flex align-items-stretch">
+            <div class="card w-100 rounded-4">
+                <div class="card-body">
+                    <div class="d-flex align-items-start justify-content-between mb-3">
+                        <div class="">
+                            <h5 class="mb-0">Recent Orders</h5>
+                        </div>
+                        <div class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle-nocaret options dropdown-toggle"
+                                data-bs-toggle="dropdown">
+                                <span class="material-icons-outlined fs-5">more_vert</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="javascript:;">Action</a></li>
+                                <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
+                                <li><a class="dropdown-item" href="javascript:;">Something else here</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="order-search position-relative my-3">
+                        <input class="form-control rounded-5 px-5" type="text" placeholder="Search">
+                        <span
+                            class="material-icons-outlined position-absolute ms-3 translate-middle-y start-0 top-50">search</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Item Name</th>
+                                    <th>Amount</th>
+                                    <th>Vendor</th>
+                                    <th>Status</th>
+                                    <th>Rating</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="">
+                                                <img src="https://placehold.co/110x110/png" class="rounded-circle"
+                                                    width="50" height="50" alt="">
+                                            </div>
+                                            <p class="mb-0">Sports Shoes</p>
+                                        </div>
+                                    </td>
+                                    <td>$149</td>
+                                    <td>Julia Sunota</td>
+                                    <td>
+                                        <p class="dash-lable mb-0 bg-success bg-opacity-10 text-success rounded-2">
+                                            Completed</p>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-1">
+                                            <p class="mb-0">5.0</p>
+                                            <i class="material-icons-outlined text-warning fs-6">star</i>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="">
+                                                <img src="https://placehold.co/110x110/png" class="rounded-circle"
+                                                    width="50" height="50" alt="">
+                                            </div>
+                                            <p class="mb-0">Goldan Watch</p>
+                                        </div>
+                                    </td>
+                                    <td>$168</td>
+                                    <td>Julia Sunota</td>
+                                    <td>
+                                        <p class="dash-lable mb-0 bg-success bg-opacity-10 text-success rounded-2">
+                                            Completed</p>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-1">
+                                            <p class="mb-0">5.0</p>
+                                            <i class="material-icons-outlined text-warning fs-6">star</i>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="">
+                                                <img src="https://placehold.co/110x110/png" class="rounded-circle"
+                                                    width="50" height="50" alt="">
+                                            </div>
+                                            <p class="mb-0">Men Polo Tshirt</p>
+                                        </div>
+                                    </td>
+                                    <td>$124</td>
+                                    <td>Julia Sunota</td>
+                                    <td>
+                                        <p class="dash-lable mb-0 bg-warning bg-opacity-10 text-warning rounded-2">
+                                            Pending</p>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-1">
+                                            <p class="mb-0">4.0</p>
+                                            <i class="material-icons-outlined text-warning fs-6">star</i>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="">
+                                                <img src="https://placehold.co/110x110/png" class="rounded-circle"
+                                                    width="50" height="50" alt="">
+                                            </div>
+                                            <p class="mb-0">Blue Jeans Casual</p>
+                                        </div>
+                                    </td>
+                                    <td>$289</td>
+                                    <td>Julia Sunota</td>
+                                    <td>
+                                        <p class="dash-lable mb-0 bg-success bg-opacity-10 text-success rounded-2">
+                                            Completed</p>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-1">
+                                            <p class="mb-0">3.0</p>
+                                            <i class="material-icons-outlined text-warning fs-6">star</i>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="">
+                                                <img src="https://placehold.co/110x110/png" class="rounded-circle"
+                                                    width="50" height="50" alt="">
+                                            </div>
+                                            <p class="mb-0">Fancy Shirts</p>
+                                        </div>
+                                    </td>
+                                    <td>$389</td>
+                                    <td>Julia Sunota</td>
+                                    <td>
+                                        <p class="dash-lable mb-0 bg-danger bg-opacity-10 text-danger rounded-2">
+                                            Canceled</p>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-1">
+                                            <p class="mb-0">2.0</p>
+                                            <i class="material-icons-outlined text-warning fs-6">star</i>
+                                        </div>
+                                    </td>
+                                </tr>
 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+
+
+</div>
 @endsection

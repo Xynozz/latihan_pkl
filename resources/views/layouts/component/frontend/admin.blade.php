@@ -45,7 +45,9 @@
 
     <!--start main wrapper-->
     <main class="main-wrapper">
+        <div class="main-content">
         @yield('content')
+        </div>
     </main>
     <!--end main wrapper-->
         @include('layouts.component.backend.customize')
